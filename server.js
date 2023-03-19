@@ -32,6 +32,7 @@ app.get("/all", async (req, res) => {
 app.get("/searchById", (req, res) => {
   res.render("searchId", {
     header: "Search by ID",
+    btnTxt: "Search by ID",
     action: "/searchId",
   });
 });
@@ -75,5 +76,35 @@ app.post("/addComputer", async (req, res) => {
       status: "reject",
     };
     res.render("notify", resRejectObj);
+  }
+});
+// removing computer from database
+app.get("/removeComputer", (req, res) =>
+  res.render("searchId", {
+    header: "Remove Computer",
+    btnTxt: "Remove by ID",
+    action: "/removeComputer",
+  })
+);
+
+app.post("/removeComputer", async (req, res) => {
+  try {
+    const id = await req.body.id;
+    const removeStatus = await removeFromStorage(id); // return success or false
+    if (removeStatus) {
+      const rmvObj = {
+        header: "Remove success!",
+        message: `Computer with id: ${id} is removed successfully`,
+      };
+      res.render("notify", rmvObj);
+    } else
+      throw new Error(
+        `Computer with id: ${id} con not be found in the database`
+      );
+  } catch (error) {
+    res.render("notify", {
+      header: "Removing failded",
+      message: error.message,
+    });
   }
 });

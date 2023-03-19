@@ -1,14 +1,14 @@
-'use strict'
+"use strict";
 
-const fs = require('fs')
+const fs = require("fs");
 
 async function readStorage(storageFilePath) {
   try {
-    const data = await fs.promises.readFile(storageFilePath, 'utf-8')
-    return JSON.parse(data)
+    const data = await fs.promises.readFile(storageFilePath, "utf-8");
+    return JSON.parse(data);
   } catch (err) {
-    console.log('error from readStorage:', err)
-    return []
+    console.log("error from readStorage:", err);
+    return [];
   }
 }
 
@@ -19,15 +19,14 @@ async function writeStorage(storageFilePath, data) {
       storageFilePath,
       JSON.stringify(data, null, 4),
       {
-        encoding: 'utf-8',
-        flag: 'w',
+        encoding: "utf-8",
+        flag: "w",
       }
-    )
-    return 'success'
+    );
+    return "success";
   } catch (err) {
-    console.log(err)
-    return false
+    return false;
   }
 }
 
-module.exports = { readStorage, writeStorage }
+module.exports = { readStorage, writeStorage };
