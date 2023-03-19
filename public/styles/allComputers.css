@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+td:nth-child(1) {
+  width: 10rem;
+}
+td:nth-child(2) {
+  width: 30rem;
+}
+td:nth-child(3) {
+  width: 20rem;
+}
+td:nth-child(4) {
+  width: 20rem;
+}
+td:nth-child(5) {
+  width: 10rem;
+}
+table {
+  padding: 2rem;
+}
+td {
+  padding: 0.5rem;
+}
+thead tr td {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+tbody tr {
+  margin-bottom: 1rem;
+}
+tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.274);
+}

@@ -42,31 +42,10 @@
         "amount": 100
     },
     {
-        "id": 45454,
-        "name": "54545",
-        "type": "454545",
-        "processor": "45454",
-        "amount": 54545
-    },
-    {
         "id": 11,
         "name": "Dell 1556",
         "type": "laptop",
         "processor": "i5",
         "amount": 65000
-    },
-    {
-        "id": 11,
-        "name": "Dell 1556",
-        "type": "laptop",
-        "processor": "i5",
-        "amount": 65000
-    },
-    {
-        "id": 506,
-        "name": "fdf",
-        "type": "fdf",
-        "processor": "dfdf",
-        "amount": 434
     }
 ]

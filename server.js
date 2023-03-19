@@ -11,9 +11,11 @@ const {
   removeFromStorage,
 } = require("./storage/storageLayer");
 const { newPCDataCheck } = require("./postDataCheck");
+const { urlencoded } = require("express");
 // express usages
 app.use(express.urlencoded());
-app.use(express.static(path.join(__dirname, "styles")));
+app.use(express.static(path.join(__dirname, "public")));
+urlencoded({ extended: false });
 // server listening
 app.listen(port, host, () => console.log(`serving at ${host}:${port}`));
 // server at root
