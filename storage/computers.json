@@ -42,34 +42,6 @@
         "amount": 100
     },
     {
-        "id": "7",
-        "name": "kkhj",
-        "type": "kjh",
-        "processor": "jhjk",
-        "amount": "45"
-    },
-    {
-        "id": 656,
-        "name": "65",
-        "type": "565",
-        "processor": "65656",
-        "amount": 5656
-    },
-    {
-        "id": 454,
-        "name": "545",
-        "type": "545",
-        "processor": "545",
-        "amount": 545454
-    },
-    {
-        "id": 4343,
-        "name": "343",
-        "type": "34",
-        "processor": "343",
-        "amount": 343
-    },
-    {
         "id": 45454,
         "name": "54545",
         "type": "454545",
@@ -91,10 +63,10 @@
         "amount": 65000
     },
     {
-        "id": 45,
-        "name": "454",
-        "type": "545",
-        "processor": "545",
-        "amount": 454
+        "id": 506,
+        "name": "fdf",
+        "type": "fdf",
+        "processor": "dfdf",
+        "amount": 434
     }
 ]

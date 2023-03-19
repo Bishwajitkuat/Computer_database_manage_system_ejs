@@ -11,7 +11,9 @@ const {
   removeFromStorage,
 } = require("./storage/storageLayer");
 const { newPCDataCheck } = require("./postDataCheck");
+// express usages
 app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, "styles")));
 // server listening
 app.listen(port, host, () => console.log(`serving at ${host}:${port}`));
 // server at root
@@ -51,6 +53,7 @@ app.post("/searchId", async (req, res) => {
     res.render("notify", {
       header: "Search Result",
       message: error.message,
+      status: "reject",
     });
   }
 });
@@ -73,7 +76,7 @@ app.post("/addComputer", async (req, res) => {
       const resSuccessObj = {
         header: "Success!",
         message: "New computer is added successfully!",
-        status: "success",
+        status: "done",
       };
       res.render("notify", resSuccessObj);
     } else {
@@ -105,6 +108,7 @@ app.post("/removeComputer", async (req, res) => {
       const rmvObj = {
         header: "Remove success!",
         message: `Computer with id: ${id} is removed successfully!`,
+        status: "done",
       };
       res.render("notify", rmvObj);
     } else
@@ -115,6 +119,7 @@ app.post("/removeComputer", async (req, res) => {
     res.render("notify", {
       header: "Removing failded",
       message: error.message,
+      status: "reject",
     });
   }
 });
