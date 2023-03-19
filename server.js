@@ -38,10 +38,20 @@ app.get("/searchById", (req, res) => {
 });
 
 app.post("/searchId", async (req, res) => {
-  const id = await req.body.id;
-  const found = await getFormStorage(id);
-  if (found.length > 0) {
-    res.render("allComputers", { result: found, header: "Search Result" });
+  try {
+    const id = await req.body.id;
+    const found = await getFormStorage(id);
+    if (found.length > 0) {
+      res.render("allComputers", { result: found, header: "Search Result" });
+    } else
+      throw new Error(
+        `Computer with id: ${id} con not be found in the database.`
+      );
+  } catch (error) {
+    res.render("notify", {
+      header: "Search Result",
+      message: error.message,
+    });
   }
 });
 
@@ -62,12 +72,12 @@ app.post("/addComputer", async (req, res) => {
       const addStatus = await addToStorage(checkData);
       const resSuccessObj = {
         header: "Success!",
-        message: "New computer is added successfully",
+        message: "New computer is added successfully!",
         status: "success",
       };
       res.render("notify", resSuccessObj);
     } else {
-      throw new Error("Please fill up all the fields with correct values");
+      throw new Error("Please fill up all the fields with correct values!");
     }
   } catch (error) {
     const resRejectObj = {
@@ -94,12 +104,12 @@ app.post("/removeComputer", async (req, res) => {
     if (removeStatus) {
       const rmvObj = {
         header: "Remove success!",
-        message: `Computer with id: ${id} is removed successfully`,
+        message: `Computer with id: ${id} is removed successfully!`,
       };
       res.render("notify", rmvObj);
     } else
       throw new Error(
-        `Computer with id: ${id} con not be found in the database`
+        `Computer with id: ${id} con not be found in the database.`
       );
   } catch (error) {
     res.render("notify", {
